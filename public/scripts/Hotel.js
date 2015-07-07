@@ -21,10 +21,18 @@ $(document).ready(function () {
 		$listGroup: $('#my-hotel .list-group'),
 		$all: $('#all-hotels'),
 		all: all_hotels,
+		attraction: "hotel",
 		constructor: Hotel
 	});
 
 	Hotel.prototype.delete = function () {
+		$.ajax({
+			type: "DELETE",
+			url:"/days/" + currentDay.id + "/hotel",
+			success: function (responseData) {
+				console.log(responseData);
+			}
+		});
 		currentDay.hotel
 			.eraseMarker()
 			.eraseItineraryItem();

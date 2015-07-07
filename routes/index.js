@@ -1,4 +1,5 @@
 var router = require('express').Router();
+var dayRoutes = require("./days.js");
 
 var models = require('../models');
 

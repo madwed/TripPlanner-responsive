@@ -4,6 +4,10 @@ $(document).ready(function () {
 	generateAttraction = function (config) {
 		config.$all.find('.add').on('click', function () {
 			var attraction = config.$all.find(':selected').data();
+			var path = "/days/" + currentDay.id + "/" + config.attraction;
+			$.post(path, {attractionId: attraction._id}, function (responseData) {
+				console.log(responseData);
+			});
 			new config.constructor(attraction);
 		});
 		config.all.forEach(function (attraction) {
